@@ -4,6 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const product_1 = __importDefault(require("./product"));
+const app_1 = require("./app/app");
+const app = new app_1.App();
+const root = document.getElementById('root');
+if (!root) {
+    throw new Error("The root element is undefined");
+}
+root.innerHTML = app.render();
 const form = document.getElementById('form');
 form === null || form === void 0 ? void 0 : form.addEventListener('submit', e => {
     e.preventDefault();
