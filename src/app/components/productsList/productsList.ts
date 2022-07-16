@@ -1,5 +1,6 @@
 import { Product } from "../../interfaces/products";
 import { productsModel } from "../../models/ProductsModel";
+import { Store } from "../../store/store";
 import { ProductItem } from "../productItem"
 
 export class productsList {
@@ -20,6 +21,10 @@ export class productsList {
         })
         .catch((error) => {
             this.error = error
+        })
+        .finally (() => {
+            this.loading = false;
+            Store.$render.next(true)
         })
     }
 
