@@ -1,1 +1,1 @@
-{"version":3,"file":"productItem.js","sourceRoot":"","sources":["productItem.ts"],"names":[],"mappings":";;;AAAA,MAAa,WAAW;IACpB,MAAM;QACF,OAAO;;SAEN,CAAC;IACN,CAAC;CACJ;AAND,kCAMC"}
+{"version":3,"file":"productItem.js","sourceRoot":"","sources":["productItem.ts"],"names":[],"mappings":";;;AAEA,MAAa,WAAW;IACpB,YAAqB,OAAgB;QAAhB,YAAO,GAAP,OAAO,CAAS;IAAG,CAAC;IACzC,MAAM;QACF,OAAO;;;eAGA,IAAI,CAAC,OAAO,CAAC,IAAI;uBACT,IAAI,CAAC,OAAO,CAAC,KAAK,UAAU,IAAI,CAAC,OAAO,CAAC,IAAI;cACtD,IAAI,CAAC,OAAO,CAAC,KAAK;;QAExB,CAAC;IACL,CAAC;CACJ;AAZD,kCAYC"}
