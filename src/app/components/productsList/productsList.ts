@@ -29,15 +29,25 @@ export class productsList {
     }
 
     render() {
-        return `<h2>Products list</h2>
+        return `<h2 style="background-color: gray; color: white;";>Products list</h2>
+        
+        <div style="display: flex; flex-wrap: wrap;">
         ${this.products.map((product) => new ProductItem(product))
-        .map((product) => product.render()).join('') }
-        ${this.loading ? `<p>Loading...</p>` : ''}
-        ${this.error ? `<p>${this.error.message}</p>` : ''}
-        <p>----</p>
-        <div>
-        <button>prev</button>
-        <button>next</button>
+            .map((product) => product.render()).join('') }
+        </div>
+      
+            <div>
+            ${this.loading ? `<p><div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div></p>` : ''}
+            </div>
+      <div>
+      ${this.error ? `<p>${this.error.message}</p>` : ''}
+      </div>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary">prev</button>
+            <button type="button" class="btn btn-primary">next</button>
         </div>
         `
     }

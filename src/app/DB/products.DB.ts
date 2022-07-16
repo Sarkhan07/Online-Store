@@ -55,7 +55,7 @@ const PRODUCTS: Product[] = [
     return new Promise<Product[]>((resolve, reject) => {
       setTimeout(() => {
         if (Math.random() < 0.1) {
-          reject(new Error('Something wend wrong'));
+          reject(new Error('Something went wrong'));
         } else {
           resolve(PRODUCTS);
         }

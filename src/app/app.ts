@@ -5,11 +5,16 @@ export class App {
     private productsList = new productsList()
 
     render() {
-        return `<h1>Online store</h1>
-        <div>
-        ${this.productsList.render()}
-        
+        return `
+        <div class="container">
+          <div class="row">
+                <div class="col-12">
+                   ${this.productsList.render()}
+                </div>
+
+          </div>
         </div>
+           
         
         `
     }
