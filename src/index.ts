@@ -1,6 +1,6 @@
 import Product from "./product"
 import { App } from "./app/app"
-import { Store } from "./app/store/store";
+import { store } from "./app/store/store";
 
 const app = new App();
 const root = document.getElementById('root')
@@ -37,7 +37,7 @@ root.innerHTML = app.render();
 // })
 
 
-Store.$render.subscribe(() => {
+store.$state.subscribe(() => {
     root.innerHTML = app.render();
   });
   

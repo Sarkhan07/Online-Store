@@ -1,9 +1,9 @@
 import { Cart } from "./components/cart"
-import { productsList } from "./components/productsList"
+import { ProductsList } from "./components/productsList/productsList"
 
 
 export class App {
-    private productsList = new productsList()
+    private productsList = new ProductsList()
     private cart = new Cart();
 
     render() {

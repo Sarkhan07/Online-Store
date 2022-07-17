@@ -1,31 +1,32 @@
 import { Product } from "../../interfaces/products";
 import { productsModel } from "../../models/ProductsModel";
-import { Store } from "../../store/store";
+import { store } from "../../store/store";
 import { ProductItem } from "../productItem"
 
-export class productsList {
+export class ProductsList {
     private loading = false;
     private error: Error | null = null;
-    // private products: Product[] = [];
     private products: Product[] = [];
 
     constructor() {
         this.fetchProducts();
+
+        store.$state.subscribe(({ products }) => {
+            this.products = products; 
+            if (products.length) {
+                this.error = null;
+                this.loading = false;
+            }
+        });
     }
 
     fetchProducts() {
         this.loading = true;
-        productsModel.getProducts()
-        .then((products) => {
-            this.products = products;
-        })
-        .catch((error) => {
+        store.update();
+        productsModel.getProducts().catch((error) => {
             this.error = error
-        })
-        .finally (() => {
             this.loading = false;
-            Store.$render.next(true)
-        })
+        });
     }
 
     render() {
