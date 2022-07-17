@@ -39,5 +39,6 @@ root.innerHTML = app.render();
 
 store.$state.subscribe(() => {
     root.innerHTML = app.render();
+    app.addEvents();
   });
   

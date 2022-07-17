@@ -1,8 +1,9 @@
 import { Cart } from "./components/cart"
 import { ProductsList } from "./components/productsList/productsList"
+import  { Components } from "./interfaces/component"
 
 
-export class App {
+export class App implements Components {
     private productsList = new ProductsList()
     private cart = new Cart();
 
@@ -23,5 +24,10 @@ export class App {
            
         
         `
+    }
+
+    addEvents () {
+      this.cart.addEvents();
+      this.productsList.addEvents();
     }
 }

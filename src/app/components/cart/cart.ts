@@ -1,11 +1,12 @@
+import { Components } from "../../interfaces/component";
 import { CartProducts } from "../../store/state";
 import { store } from "../../store/store";
 
-export class Cart {
+export class Cart implements Components {
 
     private products: CartProducts = {};
-    private amount: number = 0;
-    private sum: number = 0;
+    private amount = 0;
+    private sum = 0;
 
 
     constructor() {
@@ -42,6 +43,9 @@ export class Cart {
 
       </div>
         `;
+    }
+    addEvents () {
+      
     }
 }
 

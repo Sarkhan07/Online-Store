@@ -1,18 +1,21 @@
+import { Components } from "../../interfaces/component";
 import { Product } from "../../interfaces/products";
 import { productsModel } from "../../models/ProductsModel";
 import { store } from "../../store/store";
 import { ProductItem } from "../productItem"
 
-export class ProductsList {
+export class ProductsList implements Components {
     private loading = false;
     private error: Error | null = null;
     private products: Product[] = [];
+    private productsComponents: ProductItem[] = [];
 
     constructor() {
         this.fetchProducts();
 
         store.$state.subscribe(({ products }) => {
             this.products = products; 
+            this.productsComponents = this.products.map((product) => new ProductItem(product));
             if (products.length) {
                 this.error = null;
                 this.loading = false;
@@ -33,8 +36,7 @@ export class ProductsList {
         return `<h2 style="background-color: gray; color: white;";>Products list</h2>
         
         <div style="display: flex; flex-wrap: wrap;">
-        ${this.products.map((product) => new ProductItem(product))
-            .map((product) => product.render()).join('') }
+        ${this.productsComponents.map((product) => product.render()).join('') }
         </div>
       
             <div>
@@ -51,6 +53,10 @@ export class ProductsList {
             <button type="button" class="btn btn-primary">next</button>
         </div>
         `
+    }
+
+    addEvents () {
+        this.productsComponents.forEach((component) => component.addEvents());
     }
 }
 
